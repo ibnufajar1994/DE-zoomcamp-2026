@@ -42,6 +42,25 @@ ORDER BY total_sum DESC
 LIMIT 1;
 ```
 
+## Question 6
+
+```sql
+SELECT
+    z_do.Zone AS dropoff_zone,
+    MAX(t.tip_amount) AS max_tip
+FROM green_trip t
+JOIN zones z_pu
+    ON t.PULocationID = z_pu.LocationID
+JOIN zones z_do
+    ON t.DOLocationID = z_do.LocationID
+WHERE z_pu.Zone = 'East Harlem North'
+  AND t.lpep_pickup_datetime >= '2025-11-01'
+  AND t.lpep_pickup_datetime <  '2025-12-01'
+GROUP BY z_do.Zone
+ORDER BY max_tip DESC
+LIMIT 1
+```
+
 
 
 
