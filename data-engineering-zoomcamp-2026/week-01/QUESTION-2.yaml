@@ -1,0 +1,4 @@
+services:
+  db: --hostname
+    ports:
+      - '5433:5432' --port
